@@ -17,5 +17,7 @@
                 ↓
             Emitter             → JavaScript
 
+# Type annotation :-
+    when you explicitly tell the compiler what the type is, instead of letting it infer it.  
 # Type Inferencing :- 
     TypeScript looks at the value or usage and decides the type for you.
