@@ -8,11 +8,14 @@
         6. Emitter :- strips off all the types when executing statements, simply converting to plain js
 
             Source Code
-            ↓
-            Parser        → AST
-            ↓
-            Binder        → Symbols + Scopes
-            ↓
+                ↓
+            Parser              → AST
+                ↓
+            Binder              → Symbols + Scopes
+                ↓
             Type Checker  → Type validation
-            ↓
-            Emitter       → JavaScript
+                ↓
+            Emitter             → JavaScript
+
+# Type Inferencing :- 
+    TypeScript looks at the value or usage and decides the type for you.
