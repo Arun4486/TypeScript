@@ -93,8 +93,10 @@ function handle(input: unknown) {
         Recommended	            ❌ Rarely	✅ Yes
 
 # Type guard :-
+
     technique that lets you narrow a variable’s type at runtime
     using instanceof() for type guard
+
 ```ts
         class MasalaChai{
             serve(){
@@ -112,5 +114,47 @@ function handle(input: unknown) {
             if(chai instanceOf MasalaChai){
                 return chai.serve() // using spacial type according to condition
             }
+
         }
+```
+
+# Type keyword :-
+
+    used to create a type alias — a name for a type. It lets you define, reuse, and compose types clearly.
+
+```ts
+type User = {
+  id: number;
+  name: string;
+};
+```
+
+        type → keyword
+        User → alias (name of the type)
+        { ... } → actual type definition
+        You can now use User anywhere as a type.
+
+```ts
+const u: User = {
+  id: 1,
+  name: "Arun",
+};
+```
+
+# Forcefull type assertion :-
+
+    telling the compiler to treat a value as a specific type even when it cannot prove it’s safe.
+
+```ts
+    let response: any = "43";
+    let resLength: number = response.length; // you won't get any suggestions
+    //so
+    let resLength: number = (response as string).length;
+
+    // another example, after parsing the data we don't know what is it's type
+    type Book = {
+    name: "string";
+    };
+    let bookString = '{"name" : "The Elephant in the mind"}';
+    let bookObject = JSON.parse(bookString) as Book; // it's done to forcefully tell that this data is off a certain type
 ```
