@@ -35,3 +35,48 @@
     id = 101
      id = "A101"
 
+
+# Any and Unknown :- 
+    1. any (unsafe, escape hatch) - “Disable TypeScript’s type checking for this value.”
+```ts
+        let value: any
+        value = 10
+        value = "hello"
+        value = true
+        // You can do anything with it:
+        value.toUpperCase()   // ✅ no error (even if value is number)
+        value()              // ✅ no error
+```
+
+    2. unknown (safe alternative) - “This value could be anything, but you must check before using it.”
+```ts
+        let value: unknown
+        // You can assign any value to it:
+        value = 10
+        value = "hello"
+        value = true
+        // But you cannot use it directly:
+        value.toUpperCase() // ❌ Error
+        value()             // ❌ Error
+```
+        You must narrow it first.
+        Type narrowing with unknown
+```ts
+            if (typeof value === "string") {
+                value.toUpperCase() // ✅ OK
+            }
+            // Or:
+            function handle(input: unknown) {
+                if (Array.isArray(input)) {
+                input.length // ✅ OK
+                }
+            }
+```
+        unknown vs any (key differences)
+        Feature	                any	        unknown
+        Assign any value	    ✅	        ✅
+        Access properties	    ✅	        ❌
+        Call as function	    ✅	        ❌
+        Type safety	            ❌ None	    ✅ Strong
+        Requires narrowing	    ❌	        ✅
+        Recommended	            ❌ Rarely	✅ Yes
