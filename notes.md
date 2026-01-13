@@ -158,3 +158,21 @@ const u: User = {
     let bookString = '{"name" : "The Elephant in the mind"}';
     let bookObject = JSON.parse(bookString) as Book; // it's done to forcefully tell that this data is off a certain type
 ```
+
+# Never :-
+    never is a special type that represents values that never happen.
+```ts
+    type Role = "admin" | "user";
+
+    function roleBasedLogin(role: Role): void {
+        if (role === "admin") {
+            console.log("redirtect to admin");
+            return;
+        }
+        if (role === "user") {
+            console.log("redirecting to user");
+            return;
+        }
+        role; // now on hovering over it , it shows never, it means it can never be accessed anymore except the two value, if there was a third value then it would show the third one
+    }
+```
