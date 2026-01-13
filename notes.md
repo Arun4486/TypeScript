@@ -1,23 +1,37 @@
 # Typescript Flow:-
-        TS code --> Lexer --> Parser --> Binder --> Checker --> Emitter
-        1. TS code : normal ts code
-        2. Lexer :- used in almost all languages, it check for syntactical correctness of any statement, and tokens
-        3. Parser :- reads TypeScript source code and converts it into a structured representation (usually an Abstract Syntax Tree – AST)
-        4. Binder :- connects names to symbols and builds scopes.
-        5. Checker :-  for type checking
-        6. Emitter :- strips off all the types when executing statements, simply converting to plain js
 
-            Source Code
-                ↓
-            Parser              → AST
-                ↓
-            Binder              → Symbols + Scopes
-                ↓
-            Type Checker  → Type validation
-                ↓
-            Emitter             → JavaScript
+    TS code --> Lexer --> Parser --> Binder --> Checker --> Emitter
+    1. TS code : normal ts code
+    2. Lexer :- used in almost all languages, it check for syntactical correctness of any statement, and tokens
+    3. Parser :- reads TypeScript source code and converts it into a structured representation (usually an Abstract Syntax Tree – AST)
+    4. Binder :- connects names to symbols and builds scopes.
+    5. Checker :-  for type checking
+
+
+    Source Code
+    ↓
+    Parser        → AST
+    ↓
+    Binder        → Symbols + Scopes
+    ↓
+    Type Checker  → Type validation
+    ↓
+    Emitter       → JavaScript
 
 # Type annotation :-
     when you explicitly tell the compiler what the type is, instead of letting it infer it.  
 # Type Inferencing :- 
     TypeScript looks at the value or usage and decides the type for you.
+
+# Union :- 
+    a union type lets a variable (or parameter, return value, etc.) be one of several types.
+```ts
+    let id: number | string
+    const fruits : "banana" | "apple" | "papaya" = "apple" // there can be no other value for this variable
+```
+    This means:
+        id can be either a number or a string.
+    Valid:
+    id = 101
+     id = "A101"
+
