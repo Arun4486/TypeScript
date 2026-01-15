@@ -2,7 +2,7 @@ function greet(person: string): string {
   return `hello ${person}`;
 }
 
-console.log(greet("Arun"));
+// console.log(greet("Arun"));
 
 try {
   const result = "any operation";
@@ -28,3 +28,10 @@ function roleBasedLogin(role: Role): void {
   }
   role; // now on hovering over it , it shows never, it means it can never be accessed anymore except the two value, if there was a third value then it would show the third one
 }
+
+
+function greetings(name : string = "arun"){
+  console.log(`Hello ${name}`);
+}
+
+greetings("Member")
