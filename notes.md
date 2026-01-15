@@ -146,33 +146,51 @@ const u: User = {
     telling the compiler to treat a value as a specific type even when it cannot prove it’s safe.
 
 ```ts
-    let response: any = "43";
-    let resLength: number = response.length; // you won't get any suggestions
-    //so
-    let resLength: number = (response as string).length;
+let response: any = "43";
+let resLength: number = response.length; // you won't get any suggestions
+//so
+let resLength: number = (response as string).length;
 
-    // another example, after parsing the data we don't know what is it's type
-    type Book = {
-    name: "string";
-    };
-    let bookString = '{"name" : "The Elephant in the mind"}';
-    let bookObject = JSON.parse(bookString) as Book; // it's done to forcefully tell that this data is off a certain type
+// another example, after parsing the data we don't know what is it's type
+type Book = {
+  name: "string";
+};
+let bookString = '{"name" : "The Elephant in the mind"}';
+let bookObject = JSON.parse(bookString) as Book; // it's done to forcefully tell that this data is off a certain type
 ```
 
 # Never :-
-    never is a special type that represents values that never happen.
-```ts
-    type Role = "admin" | "user";
 
-    function roleBasedLogin(role: Role): void {
-        if (role === "admin") {
-            console.log("redirtect to admin");
-            return;
-        }
-        if (role === "user") {
-            console.log("redirecting to user");
-            return;
-        }
-        role; // now on hovering over it , it shows never, it means it can never be accessed anymore except the two value, if there was a third value then it would show the third one
-    }
+    never is a special type that represents values that never happen.
+
+```ts
+type Role = "admin" | "user"; //? litral types, literally assigning vlaues
+
+function roleBasedLogin(role: Role): void {
+  if (role === "admin") {
+    console.log("redirtect to admin");
+    return;
+  }
+  if (role === "user") {
+    console.log("redirecting to user");
+    return;
+  }
+  role; // now on hovering over it , it shows never, it means it can never be accessed anymore except the two value, if there was a third value then it would show the third one
+}
+```
+
+# Duck typing :-
+
+```ts
+    type chai = {
+    name: string;
+    suger: numbver;
+    };
+
+    type coffe = {
+    name: "Black";
+    suger: 2;
+    };
+
+    const order: chai = coffee; // this is fine if the struncture is same
 ```
