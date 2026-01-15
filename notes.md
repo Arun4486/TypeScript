@@ -194,3 +194,15 @@ function roleBasedLogin(role: Role): void {
 
     const order: chai = coffee; // this is fine if the struncture is same
 ```
+
+# Type Splitting :-
+```ts
+    type Item = {name : stirng, quantity: number}
+    type Address = {street : string, pin:number}
+
+    type Order = {
+        id: string,
+        items : Item[],
+        address : Address // defining type separatly is a cleen way to write types
+    }
+```
