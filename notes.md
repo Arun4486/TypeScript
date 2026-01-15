@@ -206,3 +206,10 @@ function roleBasedLogin(role: Role): void {
         address : Address // defining type separatly is a cleen way to write types
     }
 ```
+
+# Functions :-
+```ts
+    function One(name : string ): void { //in () type is from argumnets, outside is for return type. 
+        colsole.log(`hello ${name}`)
+    }
+```

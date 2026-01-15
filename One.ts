@@ -15,7 +15,7 @@ try {
 
 //! Never
 
-type Role = "admin" | "user";
+type Role = "admin" | "user"; 
 
 function roleBasedLogin(role: Role): void {
   if (role === "admin") {
